@@ -9,6 +9,7 @@ const express = require("express"),
   error = chalk.bold.red,
   success = chalk.bold.yellow,
   auth = require("./routes/auth"),
+  cards = require("./routes/cards"),
   cors = require("cors");
 mongoose
   .connect("mongodb://localhost:27017/rest_api")
@@ -22,7 +23,7 @@ app.use(express.json());
 
 app.use("/api/users", users);
 app.use("/api/auth", auth);
-
+app.use("/api/cards", cards);
 app.listen(port, () => {
   console.info(success(`start server start listening on port ${port}`));
 });
